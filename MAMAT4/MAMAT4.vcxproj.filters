@@ -14,4 +14,32 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Person.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Child.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Teacher.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Person.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Child.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Teacher.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="defs.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
