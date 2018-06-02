@@ -122,14 +122,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Child.C" />
+    <ClCompile Include="Class.C" />
     <ClCompile Include="main.C" />
     <ClCompile Include="Person.C" />
+    <ClCompile Include="Room.C" />
     <ClCompile Include="Teacher.C" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Child.H" />
+    <ClInclude Include="Class.H" />
     <ClInclude Include="defs.H" />
     <ClInclude Include="Person.H" />
+    <ClInclude Include="Room.H" />
     <ClInclude Include="Teacher.H" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

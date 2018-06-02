@@ -27,6 +27,12 @@
     <ClCompile Include="Teacher.C">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Room.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Class.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Person.H">
@@ -39,6 +45,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="defs.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Room.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Class.H">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
