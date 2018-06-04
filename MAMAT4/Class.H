@@ -28,6 +28,9 @@ public:
 	Result Set_Sick_Child(string const name);
 	void Print() const;
 
+	int Find_Teacher_Pos(string const name); //cant implement static
+	int Find_Child_Pos(string const name);
+
 private:
 	double max_ratio_;
 	int  max_capacitence_;
