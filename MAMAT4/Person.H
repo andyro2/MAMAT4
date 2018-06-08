@@ -11,11 +11,8 @@ public:
 	 int GetAge() const;
 	 string GetName() const;
 	 void Print() const;
-private:
+protected:
 	int age_ ;
 	string name_ ;
 };
-
-
-
 #endif

@@ -99,6 +99,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -124,6 +125,7 @@
     <ClCompile Include="Child.C" />
     <ClCompile Include="Class.C" />
     <ClCompile Include="main.C" />
+    <ClCompile Include="Office.C" />
     <ClCompile Include="Person.C" />
     <ClCompile Include="Room.C" />
     <ClCompile Include="Teacher.C" />
@@ -132,6 +134,7 @@
     <ClInclude Include="Child.H" />
     <ClInclude Include="Class.H" />
     <ClInclude Include="defs.H" />
+    <ClInclude Include="Office.H" />
     <ClInclude Include="Person.H" />
     <ClInclude Include="Room.H" />
     <ClInclude Include="Teacher.H" />

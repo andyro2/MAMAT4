@@ -17,7 +17,7 @@ public:
 	void SetPhone(string phone);
 	Result SetSick();
 	
-private:
+protected:
 	string phone_;
 	bool sick_;
 };

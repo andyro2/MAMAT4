@@ -9,7 +9,7 @@ public:
 	Teacher(string const name, int age, int seniority);
 	int GetSeniority() const;
 	void Print() const;
-private:
+protected:
 	int seniority_;
 };
 

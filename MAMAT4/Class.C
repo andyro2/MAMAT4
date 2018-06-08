@@ -36,7 +36,7 @@ void Class::Add_Teacher(string const name, int age, int seniority) {
 }
 
 Result Class::Add_Child(const string name, int age, string phone) {
-	if ((children_.size() + 1) / teachers_.size() <= max_ratio_ || (children_.size() + 1) <= max_capacitence_) {
+	if ((children_.size() + 1) / teachers_.size() <= max_ratio_ && (children_.size() + 1) <= max_capacitence_) {
 		Child c(name, age, phone);
 		children_.push_back(c);
 		return SUCCESS;
@@ -98,7 +98,7 @@ void Class::Print() const {
 	cout << "Number of teachers : " << teachers_.size() << endl;
 	cout << "Max value for ratio : " << max_ratio_ << endl;
 	cout << "Current ratio : " << children_.size()/ teachers_.size() << endl;
-	cout << "Children age range : " << ages_ << " – " << ages_+1 << "\n"<<endl;
+	cout << "Children age range : " << ages_ << " - " << ages_+1 << "\n"<<endl;
 	cout << "Printing childrens status :\n" << "========================" << endl;
 	for (int i = 0; i <children_.size(); i++) 
 		children_[i].Print();

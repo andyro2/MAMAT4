@@ -17,7 +17,7 @@ public:
 	void Free_Room();
 	void Print() const;
 
-private:
+protected:
 	int size_;
 	int room_num_;
 	bool occupied_;

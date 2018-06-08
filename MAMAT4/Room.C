@@ -25,5 +25,9 @@ void Room::Free_Room() {
 }
 
 void Room::Print() const{
-	cout << "Number : " << room_num_ << "\n" << "Size : " << size_ << " square meters\n" << "Is Occupied : " << occupied_ << endl;
+	cout << "Number : " << room_num_ << "\n" << "Size : " << size_ << " square meters" << endl;
+	if(occupied_)
+		cout<< "Is Occupied : " << "true" << endl;
+	else
+		cout << "Is Occupied : " << "false" << endl;
 }
