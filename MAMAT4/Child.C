@@ -25,10 +25,5 @@ Result Child::SetSick() {
 
 void Child::Print() const {
 	Person::Print();
-	cout << "Parent's Phone : " << phone_ << "\n" << "Is Sick : ";
-	if (sick_)
-		cout << "true" << endl;
-	else
-		cout << "false" << endl;
-	
+	cout << "Parent's Phone : " << phone_ << "\n" << "Is Sick : " << boolalpha << sick_ << endl;
 }

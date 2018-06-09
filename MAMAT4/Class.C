@@ -12,6 +12,10 @@ int Class::Get_Num_Teachers() const {
 	return teachers_.size();
 }
 
+int Class::Get_Num_Children() const {
+	return children_.size();
+}
+
 int Class::Get_Ages() const {
 	return ages_;
 }
@@ -21,7 +25,7 @@ double Class::Get_Ratio() const {
 }
 
 string Class::Get_Child_Phone(string const child_name) const {
-	for (int i = 0 ; i<children_.size(); ++i) {
+	for (int i = 0 ; i < children_.size(); ++i) {
 		if (child_name == children_[i].GetName())
 			return children_[i].GetPhone();
 	}
@@ -32,23 +36,27 @@ string Class::Get_Child_Phone(string const child_name) const {
 void Class::Add_Teacher(string const name, int age, int seniority) {
 	Teacher t(name, age, seniority); //dosen't work with new
 	teachers_.push_back(t);
+	this->Fill_Room();
 	return;
 }
 
 Result Class::Add_Child(const string name, int age, string phone) {
-	if ((children_.size() + 1) / teachers_.size() <= max_ratio_ && (children_.size() + 1) <= max_capacitence_) {
+	if ((double)(children_.size() + 1) / (double)teachers_.size() <= max_ratio_ && (children_.size() + 1) <= max_capacitence_) {
 		Child c(name, age, phone);
 		children_.push_back(c);
+		this->Fill_Room();
 		return SUCCESS;
 	}
 	return FAILURE;
 }
 
 Result Class::Remove_Teacher(string const name) {
-	if (children_.size() / (teachers_.size() -1) <= max_ratio_) {
+	if ((double)children_.size() / (double)(teachers_.size() -1) <= max_ratio_) {
 		int i = Find_Teacher_Pos(name);
 		if (i != -1) {
 			teachers_.erase(teachers_.begin() + i);  // not sure
+			if (teachers_.size() == 0)
+				this->Free_Room();
 			return SUCCESS;
 		}
 	}
@@ -90,6 +98,10 @@ Result Class::Set_Sick_Child(string const name) {
 	return FAILURE;
 }
 
+double Class::Get_Curr_Ratio() const {
+	return (double)children_.size() / (double)teachers_.size();
+}
+
 void Class::Print() const {
 	cout << "Printing class status :\n" << "========================" << endl;
 	Room::Print();
@@ -110,4 +122,14 @@ void Class::Print() const {
 	cout << endl;
 
 
+}
+
+string Class::Check_Valid_Phone(string const name) {
+	int i = Find_Child_Pos(name);
+	if (i != -1) {
+		string phone = children_[i].GetPhone();
+		if (phone[0] == '0' && phone[1] == '5' && phone.length() == 10)
+			return phone;
+	}
+	return "Failure";
 }

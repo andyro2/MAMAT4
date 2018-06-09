@@ -17,6 +17,8 @@ public:
 	
 	Class(int const room_num, int size, double max_ratio, int ages, int max_cappacitence, bool occupied = false);
 	int Get_Num_Teachers() const;
+	int Get_Num_Children() const;
+	double Get_Curr_Ratio() const;
 	int Get_Ages() const;
 	double Get_Ratio() const;
 	string Get_Child_Phone(string const child_name) const;
@@ -28,9 +30,13 @@ public:
 	Result Set_Sick_Child(string const name);
 	void Print() const;
 
-protected:
-	int Find_Teacher_Pos(string const name); //cant implement static
+	int Find_Teacher_Pos(string const name);
 	int Find_Child_Pos(string const name);
+	string Check_Valid_Phone(string const name);
+
+protected:
+	
+	//string Check_Valid_Phone(string const name);
 
 	double max_ratio_;
 	int  max_capacitence_;
