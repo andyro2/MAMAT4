@@ -66,33 +66,130 @@ int main() {
 		}
 
 		if (tokens[0] == "addClass") {
-			//Add your code here ...
-		}
-		if (tokens[0] == "removeClass") {
-			//Add your code here ...
-		}
-		if (tokens[0] == "addChild") {
-			//Add your code here ...
+			if (tokens[1] == NULL)
+				cerr << "Failed - " << tokens[0] << endl;
+			else if (tokens[2] == NULL)
+				cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << endl;
+			else if (tokens[3] == NULL)
+				cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << " \t\n" << tokens[2] << endl;
+			else if (tokens[4] == NULL)
+				cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << " \t\n" << tokens[2] << " \t\n" << tokens[3] << endl;
+			else if (tokens[5] != NULL) {
+				cerr << "Failed - " << tokens[0]; //Is there a special way to congegate cerr outputs?
+				for (int i = 1; i < tokens.size(); i++)
+					cerr << " \t\n" << tokens[i];
+				cerr << endl;
+			}
+					
+			else if (KG_Office.Add_Class(stringToInt(tokens[1]),stringToDouble(tokens[2]),stringToInt(tokens[4]),stringToInt(tokens[3])) == FAILURE)
+				cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << " \t\n" << tokens[2] << " \t\n"
+					<< tokens[3] << " \t\n" << tokens[4] << " \t\n" << endl;
 		}
 
-		if (tokens[0] == "addTeahcer") {
-			//Add your code here ...
+		if (tokens[0] == "removeClass") {
+			if (tokens[1] == NULL)
+				cerr << "Failed - " << tokens[0] << endl;
+			else if (tokens[2] != NULL) {
+				cerr << "Failed - " << tokens[0]; //Is there a special way to congegate cerr outputs?
+				for (int i = 1; i < tokens.size(); i++)
+					cerr << " \t\n" << tokens[i];
+				cerr << endl;
+			}
+
+			else if (KG_Office.Remove_Class(stringToInt(tokens[1])) == FAILURE)
+				cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << endl;
+		}
+
+		if (tokens[0] == "addChild") {
+			if (tokens[1] == NULL)
+				cerr << "Failed - " << tokens[0] << endl;
+			else if (tokens[2] == NULL)
+				cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << endl;
+			else if (tokens[3] == NULL)
+				cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << " \t\n" << tokens[2] << endl;
+			else if (tokens[4] != NULL) {
+				cerr << "Failed - " << tokens[0]; //Is there a special way to congegate cerr outputs?
+				for (int i = 1; i < tokens.size(); i++)
+					cerr << " \t\n" << tokens[i];
+				cerr << endl;
+			}
+
+			else if (KG_Office.Add_Child(tokens[2], stringToInt(tokens[1]), tokens[3]) == FAILURE)
+				cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << " \t\n" << tokens[2] << " \t\n"
+				<< tokens[3] << " \t\n" << endl;
+		}
+
+		if (tokens[0] == "addTeacher") {
+			if (tokens[1] == NULL)
+				cerr << "Failed - " << tokens[0] << endl;
+			else if (tokens[2] == NULL)
+				cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << endl;
+			else if (tokens[3] == NULL)
+				cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << " \t\n" << tokens[2] << endl;
+			else if (tokens[4] != NULL) {
+				cerr << "Failed - " << tokens[0]; //Is there a special way to congegate cerr outputs?
+				for (int i = 1; i < tokens.size(); i++)
+					cerr << " \t\n" << tokens[i];
+				cerr << endl;
+			}
+
+			else if (KG_Office.Add_Teacher(tokens[2], stringToInt(tokens[1]), stringToInt(tokens[3])) == FAILURE)
+				cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << " \t\n" << tokens[2] << " \t\n"
+				<< tokens[3] << " \t\n" << endl;
 		}
 
 		if (tokens[0] == "removeChild") {
-			//Add your code here ...
+			if (tokens[1] == NULL)
+				cerr << "Failed - " << tokens[0] << endl;
+			else if (tokens[2] != NULL) {
+				cerr << "Failed - " << tokens[0]; //Is there a special way to congegate cerr outputs?
+				for (int i = 1; i < tokens.size(); i++)
+					cerr << " \t\n" << tokens[i];
+				cerr << endl;
+			}
+
+			else if (KG_Office.Remove_Child(tokens[1]) == FAILURE)
+				cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << endl;
 		}
 
 		if (tokens[0] == "removeTeacher") {
-			//Add your code here ...
+			if (tokens[1] == NULL)
+				cerr << "Failed - " << tokens[0] << endl;
+			else if (tokens[2] != NULL) {
+				cerr << "Failed - " << tokens[0]; //Is there a special way to congegate cerr outputs?
+				for (int i = 1; i < tokens.size(); i++)
+					cerr << " \t\n" << tokens[i];
+				cerr << endl;
+			}
+
+			else if (KG_Office.Remove_Teacher(tokens[1]) == FAILURE)
+				cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << endl;
 		}
 
 		if (tokens[0] == "PrintKindergarten") {
-			//Add your code here ...
+			if (tokens[1] != NULL) {
+				cerr << "Failed - " << tokens[0]; //Is there a special way to congegate cerr outputs?
+				for (int i = 1; i < tokens.size(); i++)
+					cerr << " \t\n" << tokens[i];
+				cerr << endl;
+			}
+
+			else
+				KG_Office.Print();
 		}
 
 		if (tokens[0] == "sickChild") {
-			//Add your code here ...
+			if (tokens[1] == NULL)
+				cerr << "Failed - " << tokens[0] << endl;
+			else if (tokens[2] != NULL) {
+				cerr << "Failed - " << tokens[0]; //Is there a special way to congegate cerr outputs?
+				for (int i = 1; i < tokens.size(); i++)
+					cerr << " \t\n" << tokens[i];
+				cerr << endl;
+			}
+
+			else if (KG_Office.Set_Sick_Child(tokens[1]) == FAILURE)
+				cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << endl;
 		}
 
 		lineNumber++;

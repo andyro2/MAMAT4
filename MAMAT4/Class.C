@@ -109,14 +109,14 @@ void Class::Print() const {
 	cout << "Number of children : " << children_.size() << endl;
 	cout << "Number of teachers : " << teachers_.size() << endl;
 	cout << "Max value for ratio : " << max_ratio_ << endl;
-	cout << "Current ratio : " << this->Get_Curr_Ratio() << endl;
-	cout << "Children age range : " << ages_ << " - " << ages_ + 1 << "\n" << endl;
-	if (children_.size() != 0) {
-	cout << "Printing childrens status :\n" << "========================" << endl;
-	for (int i = 0; i < children_.size(); i++)
-		children_[i].Print();
-}
-	if (teachers_.size() != 0) {
+	cout << "Current ratio : " << children_.size()/ teachers_.size() << endl;
+	cout << "Children age range : " << ages_ << " - " << ages_+1 << "\n"<<endl;
+	if (children_.size() > 0) {
+		cout << "Printing childrens status :\n" << "========================" << endl;
+		for (int i = 0; i < children_.size(); i++)
+			children_[i].Print();
+	}
+	if (teachers_.size() > 0) {
 		cout << "\nPrinting teachers status :\n" << "========================" << endl;
 		for (int i = 0; i < teachers_.size(); i++)
 			teachers_[i].Print();
