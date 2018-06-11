@@ -115,7 +115,7 @@ Result Office::Remove_Child(string const name) {
 
 	for (int i = 0; i < classes_.size(); i++) {
 		if (classes_[i].Remove_Child(name) == SUCCESS)
-			if (busy_)
+			if (busy_) 
 				busy_ = false;
 			return SUCCESS;
 	}
@@ -175,8 +175,9 @@ void Office::Print() const {
 	cout << "Office is busy : " << boolalpha << busy_ << endl;
 	if(busy_)
 		cout << "Sick Child : " << sick_child_ << "\n" <<endl;
-	for (int i = 0; i < classes_.size(); i++)
-		classes_[i].Print();
-
+	if (classes_.size() > 0) {
+		for (int i = 0; i < classes_.size(); i++)
+			classes_[i].Print();
+	}
 	return;
 }
