@@ -105,7 +105,7 @@ int main() {
 		}
 
 		if (tokens[0] == "removeChild") {
-			if (check_Valid_Args(tokens, 2))
+			if (check_Valid_Args(tokens, 1))
 				if (KG_Office.Remove_Child(tokens[1]) == FAILURE)
 					cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << endl;
 		}
