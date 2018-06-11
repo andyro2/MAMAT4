@@ -15,7 +15,7 @@ using std::vector;
 class Class : public Room {
 public:
 	
-	Class(int const room_num, int size, double max_ratio, int ages, int max_cappacitence, bool occupied = false);
+	Class(int const room_num, int size, double max_ratio, int ages, int max_cappacitence);
 	int Get_Num_Teachers() const;
 	int Get_Num_Children() const;
 	double Get_Curr_Ratio() const;

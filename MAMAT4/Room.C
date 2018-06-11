@@ -5,8 +5,11 @@
 using std::cout;
 using std::endl;
 
-Room::Room(int const room_num, int size, bool occupied)
-	:room_num_(room_num), size_(size), occupied_(occupied) {};
+Room::Room(int const room_num, int size)
+	:occupied_(false) {
+	room_num_ = room_num;
+	size_ = size;
+};
 
 int Room::GetRoomNum() const {
 	return room_num_;

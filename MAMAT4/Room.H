@@ -9,7 +9,7 @@ using std::boolalpha;
 
 class Room {
 public:
-	Room(int const room_num, int size, bool occupied = false);
+	Room(int const room_num, int size);
 	int GetRoomNum() const;
 	bool GetOccupied() const;
 

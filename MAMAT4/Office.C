@@ -7,7 +7,7 @@ using std::endl;
 using std::string;
 using std::boolalpha;
 
-Office::Office(const int room_num, int size) :Room(room_num, size, true) {}; // can be done with Fill_Room() but seems unnecessary
+Office::Office(const int room_num, int size) :Room(room_num, size) { Fill_Room(); }; // can be done with Fill_Room() but seems unnecessary
 
 Result Office::Add_Class(int size, double max_ratio, int ages, int max_cappacitence) {
 	if (busy_)
@@ -20,7 +20,7 @@ Result Office::Add_Class(int size, double max_ratio, int ages, int max_cappacite
 }
 
 int Office::Find_Class_Ages(int ages) {
-	for (int i = 0; i < classes_.size(); i++) {
+	for (unsigned int i = 0; i < classes_.size(); i++) {
 		if (classes_[i].Get_Ages() == ages)
 			return i;
 	}
@@ -68,7 +68,7 @@ Result Office::Add_Teacher(string const name, int age, int seniority) {
 }
 
 int Office::Find_Empty_Class() {
-	for (int i = 0; i < classes_.size(); i++) {
+	for (unsigned int i = 0; i < classes_.size(); i++) {
 		if (!classes_[i].GetOccupied())
 			return i;
 	}
@@ -76,7 +76,7 @@ int Office::Find_Empty_Class() {
 }
 
 bool Office::All_Classes_Ratio_0() {
-	for (int i = 0; i < classes_.size(); i++) {
+	for (unsigned int i = 0; i < classes_.size(); i++) {
 		if (classes_[i].Get_Curr_Ratio() != 0.0)
 			return false;
 	}
@@ -87,7 +87,7 @@ int Office::Find_Lowest_Num_Teachers() {
 	int min, min_ind;
 	min = classes_[0].Get_Num_Teachers();
 	min_ind = 0;
-	for (int i = 0; i < classes_.size(); i++) {
+	for (unsigned int i = 0; i < classes_.size(); i++) {
 		if (classes_[i].Get_Num_Teachers() < min) {
 			min = classes_[i].Get_Num_Teachers();
 			min_ind = i;
@@ -100,7 +100,7 @@ int Office::Find_Highest_Ratio() {
 	int max_ind;
 	double max = classes_[0].Get_Curr_Ratio();
 	max_ind = 0;
-	for (int i = 0; i < classes_.size(); i++) {
+	for (unsigned int i = 0; i < classes_.size(); i++) {
 		if (classes_[i].Get_Num_Teachers() > max) {
 			max = classes_[i].Get_Num_Teachers();
 			max_ind = i;
@@ -113,7 +113,7 @@ Result Office::Remove_Child(string const name) {
 	if (busy_ && name != sick_child_)
 		return FAILURE;
 
-	for (int i = 0; i < classes_.size(); i++) {
+	for (unsigned int i = 0; i < classes_.size(); i++) {
 		if (classes_[i].Remove_Child(name) == SUCCESS) {
 			if (busy_)
 				busy_ = false;
@@ -126,7 +126,7 @@ Result Office::Remove_Child(string const name) {
 Result Office::Remove_Teacher(string const name) {
 	if (busy_)
 		return FAILURE;
-	for (int i = 0; i < classes_.size(); i++) {
+	for (unsigned int i = 0; i < classes_.size(); i++) {
 		if (classes_[i].Remove_Teacher(name) == SUCCESS)
 			return SUCCESS;
 	}
@@ -165,7 +165,7 @@ Result Office::Set_Sick_Child(string const name) {
 }
 
 int Office::Find_Child_Class(string const name) {
-	for (int i = 0; i < classes_.size(); i++) {
+	for (unsigned int i = 0; i < classes_.size(); i++) {
 		if (classes_[i].Find_Child_Pos(name) != -1)
 			return i;
 	}
@@ -181,7 +181,7 @@ void Office::Print() const {
 	else
 		cout << "\n" << endl;
 	if (classes_.size() > 0) {
-		for (int i = 0; i < classes_.size(); i++)
+		for (unsigned int i = 0; i < classes_.size(); i++)
 			classes_[i].Print();
 	}
 	return;

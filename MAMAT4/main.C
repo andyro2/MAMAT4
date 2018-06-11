@@ -51,11 +51,11 @@ vector<string> tokenize(string line, const char* delim) {
 }
 
 bool check_Valid_Args(vector<string> tokens, int num) {
-	if (tokens.size() == num + 1)
+	if ((int)tokens.size() == num + 1)
 		return true;
 	else {
 		cerr << "Failed - " << tokens[0]; //Is there a special way to congegate cerr outputs?
-		for (int i = 1; i < tokens.size(); i++)
+		for (unsigned int i = 1; i < tokens.size(); i++)
 			cerr << " " << tokens[i];
 		cerr << endl;
 		return false;

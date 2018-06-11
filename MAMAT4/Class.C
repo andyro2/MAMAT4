@@ -5,8 +5,11 @@
 using std::cout;
 using std::endl;
 
-Class::Class(int const room_num, int size, double max_ratio, int ages, int max_capacitence, bool occupied)
-	:Room(room_num, size, occupied), max_ratio_(max_ratio), ages_(ages), max_capacitence_(max_capacitence) {};
+Class::Class(int const room_num, int size, double max_ratio, int ages, int max_capacitence)
+	:Room(room_num, size), max_ratio_(max_ratio) {
+	ages_ = ages;
+	max_capacitence_ = max_capacitence;
+};
 
 int Class::Get_Num_Teachers() const {
 	return teachers_.size();
@@ -25,7 +28,7 @@ double Class::Get_Ratio() const {
 }
 
 string Class::Get_Child_Phone(string const child_name) const {
-	for (int i = 0 ; i < children_.size(); ++i) {
+	for (unsigned int i = 0 ; i < children_.size(); ++i) {
 		if (child_name == children_[i].GetName())
 			return children_[i].GetPhone();
 	}
@@ -41,7 +44,7 @@ void Class::Add_Teacher(string const name, int age, int seniority) {
 }
 
 Result Class::Add_Child(const string name, int age, string phone) {
-	if ((double)(children_.size() + 1) / (double)teachers_.size() <= max_ratio_ && (children_.size() + 1) <= max_capacitence_) {
+	if ((double)(children_.size() + 1) / (double)teachers_.size() <= max_ratio_ && (children_.size() + 1) <= (unsigned int)max_capacitence_) {
 		Child c(name, age, phone);
 		children_.push_back(c);
 		this->Fill_Room();
@@ -64,7 +67,7 @@ Result Class::Remove_Teacher(string const name) {
 }
 
 int Class::Find_Teacher_Pos(string const name) {
-	for (int i = 0; i < teachers_.size(); i++) {
+	for (unsigned int i = 0; i < teachers_.size(); i++) {
 		if (teachers_[i].GetName() == name)
 			return i;
 	}
@@ -82,7 +85,7 @@ return FAILURE;
 }
 
 int Class::Find_Child_Pos(string const name) {
-	for (int i = 0; i < children_.size(); i++) {
+	for (unsigned int i = 0; i < children_.size(); i++) {
 		if (children_[i].GetName() == name)
 			return i;
 	}
@@ -116,12 +119,12 @@ void Class::Print() const {
 	cout << "Children age range : " << ages_ << " - " << ages_+1 << "\n"<<endl;
 	if (children_.size() > 0) {
 		cout << "Printing childrens status :\n" << "========================" << endl;
-		for (int i = 0; i < children_.size(); i++)
+		for (unsigned int i = 0; i < children_.size(); i++)
 			children_[i].Print();
 	}
 	if (teachers_.size() > 0) {
 		cout << "\nPrinting teachers status :\n" << "========================" << endl;
-		for (int i = 0; i < teachers_.size(); i++)
+		for (unsigned int i = 0; i < teachers_.size(); i++)
 			teachers_[i].Print();
 	}
 	cout << endl;

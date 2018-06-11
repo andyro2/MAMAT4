@@ -5,7 +5,10 @@ using std::cout;
 using std::endl;
 
 Person::Person(const string name, int age)
-	:name_(name), age_(age) {};
+ {
+	name_ = name;
+	age_ = age;
+};
 
 int Person::GetAge() const {
 	return age_;
