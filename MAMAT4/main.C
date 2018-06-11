@@ -51,7 +51,7 @@ vector<string> tokenize(string line, const char* delim) {
 }
 
 bool check_Valid_Args(vector<string> tokens, int num) {
-	if (tokens.size() = num + 1)
+	if (tokens.size() == num + 1)
 		return true;
 	else {
 		cerr << "Failed - " << tokens[0]; //Is there a special way to congegate cerr outputs?
@@ -78,10 +78,12 @@ int main() {
 		}
 
 		if (tokens[0] == "addClass") {
-			if (check_Valid_Args(tokens,4))
-				if (KG_Office.Add_Class(stringToInt(tokens[1]),stringToDouble(tokens[2]),stringToInt(tokens[4]),stringToInt(tokens[3])) == FAILURE)
+			if (check_Valid_Args(tokens, 4)) {
+				vector<string> ratio = tokenize(tokens[2], ".");
+				if (KG_Office.Add_Class(stringToInt(tokens[1]), stringToDouble(ratio[0], ratio[1]), stringToInt(tokens[4]), stringToInt(tokens[3])) == FAILURE)
 					cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << " \t\n" << tokens[2] << " \t\n"
-						<< tokens[3] << " \t\n" << tokens[4] << " \t\n" << endl;
+					<< tokens[3] << " \t\n" << tokens[4] << " \t\n" << endl;
+			}
 		}
 
 		if (tokens[0] == "removeClass") {
