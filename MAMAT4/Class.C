@@ -109,7 +109,10 @@ void Class::Print() const {
 	cout << "Number of children : " << children_.size() << endl;
 	cout << "Number of teachers : " << teachers_.size() << endl;
 	cout << "Max value for ratio : " << max_ratio_ << endl;
-	cout << "Current ratio : " << children_.size()/ teachers_.size() << endl;
+	if (teachers_.size() != 0)
+		cout << "Current ratio : " << children_.size()/ teachers_.size() << endl;
+	else
+		cout << "Current ratio : 0" << endl;
 	cout << "Children age range : " << ages_ << " - " << ages_+1 << "\n"<<endl;
 	if (children_.size() > 0) {
 		cout << "Printing childrens status :\n" << "========================" << endl;
@@ -127,7 +130,7 @@ void Class::Print() const {
 }
 
 string Class::Check_Valid_Phone(string const name) {
-	int i = Find_Child_Pos(name);
+	int i = this->Find_Child_Pos(name);
 	if (i != -1) {
 		string phone = children_[i].GetPhone();
 		if (phone[0] == '0' && phone[1] == '5' && phone.length() == 10)

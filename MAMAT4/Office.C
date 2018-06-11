@@ -12,7 +12,7 @@ Office::Office(const int room_num, int size) :Room(room_num, size, true) {}; // 
 Result Office::Add_Class(int size, double max_ratio, int ages, int max_cappacitence) {
 	if (busy_)
 		return FAILURE;
-	if (Find_Class_Ages(ages) == -1)
+	if (Find_Class_Ages(ages) != -1)
 		return FAILURE;
 	Class c(classes_.size() + 2, size, max_ratio, ages, max_cappacitence);
 	classes_.push_back(c);
@@ -114,10 +114,11 @@ Result Office::Remove_Child(string const name) {
 		return FAILURE;
 
 	for (int i = 0; i < classes_.size(); i++) {
-		if (classes_[i].Remove_Child(name) == SUCCESS)
-			if (busy_) 
+		if (classes_[i].Remove_Child(name) == SUCCESS) {
+			if (busy_)
 				busy_ = false;
 			return SUCCESS;
+		}
 	}
 	return FAILURE;
 }
@@ -135,7 +136,8 @@ Result Office::Remove_Teacher(string const name) {
 Result Office::Remove_Class(int ages) {
 	if (busy_)
 		return FAILURE;
-	if (int i = Find_Class_Ages(ages) != -1) {
+	int i = Find_Class_Ages(ages);
+	if (i != -1) {
 		//classes_[i].Delete();                // not sure if needed, no malloc was assigned
 		classes_.erase(classes_.begin() + i);
 		return SUCCESS;
@@ -146,14 +148,15 @@ Result Office::Remove_Class(int ages) {
 Result Office::Set_Sick_Child(string const name) {
 	if (busy_)
 		return FAILURE;
-
-	if (int i = Find_Child_Class(name) != -1) {
+	int i = Find_Child_Class(name);
+	if (i != -1) {
 		string phone = classes_[i].Check_Valid_Phone(name);
 		if (phone != "Failure") {
 			busy_ = true;
 			sick_child_ = name;
 			classes_[i].Set_Sick_Child(name);
-			cout << "Reporting sick child : " << name << endl;
+			cout << "Reporting sick child : " << endl;
+			cout << "Name: " << name << endl;
 			cout << "Parent's phone number : " << phone << endl;
 			return SUCCESS;
 		}
@@ -173,8 +176,10 @@ void Office::Print() const {
 	cout << "Printing office status :\n" << "========================" << endl;
 	Room::Print();
 	cout << "Office is busy : " << boolalpha << busy_ << endl;
-	if(busy_)
-		cout << "Sick Child : " << sick_child_ << "\n" <<endl;
+	if (busy_)
+		cout << "Sick child : " << sick_child_ << "\n" << endl;
+	else
+		cout << "\n" << endl;
 	if (classes_.size() > 0) {
 		for (int i = 0; i < classes_.size(); i++)
 			classes_[i].Print();

@@ -56,7 +56,7 @@ bool check_Valid_Args(vector<string> tokens, int num) {
 	else {
 		cerr << "Failed - " << tokens[0]; //Is there a special way to congegate cerr outputs?
 		for (int i = 1; i < tokens.size(); i++)
-			cerr << " \t\n" << tokens[i];
+			cerr << " " << tokens[i];
 		cerr << endl;
 		return false;
 	}
@@ -81,41 +81,41 @@ int main() {
 			if (check_Valid_Args(tokens, 4)) {
 				vector<string> ratio = tokenize(tokens[2], ".");
 				if (KG_Office.Add_Class(stringToInt(tokens[1]), stringToDouble(ratio[0], ratio[1]), stringToInt(tokens[4]), stringToInt(tokens[3])) == FAILURE)
-					cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << " \t\n" << tokens[2] << " \t\n"
-					<< tokens[3] << " \t\n" << tokens[4] << " \t\n" << endl;
+					cerr << "Failed - " << tokens[0] << " " << tokens[1] << " " << tokens[2] << " "
+					<< tokens[3] << " " << tokens[4] << " " << endl;
 			}
 		}
 
 		if (tokens[0] == "removeClass") {
 			if (check_Valid_Args(tokens, 1))
 				if (KG_Office.Remove_Class(stringToInt(tokens[1])) == FAILURE)
-					cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << endl;
+					cerr << "Failed - " << tokens[0] << " " << tokens[1] << endl;
 		}
 
 		if (tokens[0] == "addChild") {
 			if (check_Valid_Args(tokens, 3))
 				if (KG_Office.Add_Child(tokens[2], stringToInt(tokens[1]), tokens[3]) == FAILURE)
-					cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << " \t\n" << tokens[2] << " \t\n"
-					<< tokens[3] << " \t\n" << endl;
+					cerr << "Failed - " << tokens[0] << " " << tokens[1] << " " << tokens[2] << " "
+					<< tokens[3] << " " << endl;
 		}
 
 		if (tokens[0] == "addTeacher") {
 			if (check_Valid_Args(tokens, 3))
 				if (KG_Office.Add_Teacher(tokens[2], stringToInt(tokens[1]), stringToInt(tokens[3])) == FAILURE)
-					cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << " \t\n" << tokens[2] << " \t\n"
-					<< tokens[3] << " \t\n" << endl;
+					cerr << "Failed - " << tokens[0] << " " << tokens[1] << " " << tokens[2] << " "
+					<< tokens[3] << " " << endl;
 		}
 
 		if (tokens[0] == "removeChild") {
 			if (check_Valid_Args(tokens, 1))
 				if (KG_Office.Remove_Child(tokens[1]) == FAILURE)
-					cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << endl;
+					cerr << "Failed - " << tokens[0] << " " << tokens[1] << endl;
 		}
 
 		if (tokens[0] == "removeTeacher") {
 			if (check_Valid_Args(tokens, 1))
 				if (KG_Office.Remove_Teacher(tokens[1]) == FAILURE)
-					cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << endl;
+					cerr << "Failed - " << tokens[0] << " " << tokens[1] << endl;
 		}
 
 		if (tokens[0] == "PrintKindergarten") {
@@ -126,7 +126,7 @@ int main() {
 		if (tokens[0] == "sickChild") {
 			if (check_Valid_Args(tokens, 1))
 				if (KG_Office.Set_Sick_Child(tokens[1]) == FAILURE)
-					cerr << "Failed - " << tokens[0] << " \t\n" << tokens[1] << endl;
+					cerr << "Failed - " << tokens[0] << " " << tokens[1] << endl;
 		}
 
 		lineNumber++;
