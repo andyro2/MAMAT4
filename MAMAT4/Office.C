@@ -183,7 +183,7 @@ void Office::Print() const {
 	if (busy_)
 		cout << "Sick child : " << sick_child_ << "\n" << endl;
 	else
-		cout << "\n" << endl;
+		cout << endl;
 	if (classes_.size() > 0) {
 		for (unsigned int i = 0; i < classes_.size(); i++)
 			classes_[i].Print();
