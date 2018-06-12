@@ -7,7 +7,11 @@ using std::endl;
 using std::string;
 using std::boolalpha;
 
-Office::Office(const int room_num, int size) :Room(room_num, size) { Fill_Room(); }; // can be done with Fill_Room() but seems unnecessary
+Office::Office(const int room_num, int size) :Room(room_num, size) { 
+	Fill_Room();
+	busy_ = false;
+	sick_child_ = "No Sick Child";
+}; // can be done with Fill_Room() but seems unnecessary
 
 Result Office::Add_Class(int size, double max_ratio, int ages, int max_cappacitence) {
 	if (busy_)

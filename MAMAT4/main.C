@@ -58,8 +58,8 @@ bool check_Valid_Args(vector<string> tokens, int num) {
 		for (unsigned int i = 1; i < tokens.size(); i++)
 			cerr << " " << tokens[i];
 		cerr << endl;
-		return false;
 	}
+	return false;
 }
 
 int main() {
