@@ -77,57 +77,59 @@ int main() {
 			continue;
 		}
 
-		if (tokens[0] == "addClass") {
+		else if (tokens[0] == "addClass") {
 			if (check_Valid_Args(tokens, 4)) {
 				vector<string> ratio = tokenize(tokens[2], ".");
 				if (KG_Office.Add_Class(stringToInt(tokens[1]), stringToDouble(ratio[0], ratio[1]), stringToInt(tokens[4]), stringToInt(tokens[3])) == FAILURE)
 					cerr << "Failed - " << tokens[0] << " " << tokens[1] << " " << tokens[2] << " "
-					<< tokens[3] << " " << tokens[4] << " " << endl;
+					<< tokens[3] << " " << tokens[4] << endl;
 			}
 		}
 
-		if (tokens[0] == "removeClass") {
+		else if (tokens[0] == "removeClass") {
 			if (check_Valid_Args(tokens, 1))
 				if (KG_Office.Remove_Class(stringToInt(tokens[1])) == FAILURE)
 					cerr << "Failed - " << tokens[0] << " " << tokens[1] << endl;
 		}
 
-		if (tokens[0] == "addChild") {
+		else if (tokens[0] == "addChild") {
 			if (check_Valid_Args(tokens, 3))
 				if (KG_Office.Add_Child(tokens[2], stringToInt(tokens[1]), tokens[3]) == FAILURE)
 					cerr << "Failed - " << tokens[0] << " " << tokens[1] << " " << tokens[2] << " "
-					<< tokens[3] << " " << endl;
+					<< tokens[3] <<  endl;
 		}
 
-		if (tokens[0] == "addTeacher") {
+		else if (tokens[0] == "addTeacher") {
 			if (check_Valid_Args(tokens, 3))
 				if (KG_Office.Add_Teacher(tokens[2], stringToInt(tokens[1]), stringToInt(tokens[3])) == FAILURE)
 					cerr << "Failed - " << tokens[0] << " " << tokens[1] << " " << tokens[2] << " "
-					<< tokens[3] << " " << endl;
+					<< tokens[3] << endl;
 		}
 
-		if (tokens[0] == "removeChild") {
+		else if (tokens[0] == "removeChild") {
 			if (check_Valid_Args(tokens, 1))
 				if (KG_Office.Remove_Child(tokens[1]) == FAILURE)
 					cerr << "Failed - " << tokens[0] << " " << tokens[1] << endl;
 		}
 
-		if (tokens[0] == "removeTeacher") {
+		else if (tokens[0] == "removeTeacher") {
 			if (check_Valid_Args(tokens, 1))
 				if (KG_Office.Remove_Teacher(tokens[1]) == FAILURE)
 					cerr << "Failed - " << tokens[0] << " " << tokens[1] << endl;
 		}
 
-		if (tokens[0] == "PrintKindergarten") {
+		else if (tokens[0] == "PrintKindergarten") {
 			if (check_Valid_Args(tokens, 0))
 				KG_Office.Print();
 		}
 
-		if (tokens[0] == "sickChild") {
+		else if (tokens[0] == "sickChild") {
 			if (check_Valid_Args(tokens, 1))
 				if (KG_Office.Set_Sick_Child(tokens[1]) == FAILURE)
 					cerr << "Failed - " << tokens[0] << " " << tokens[1] << endl;
 		}
+		else
+			cerr <<"Failed - "<< line << endl;
 
 		lineNumber++;
 	}

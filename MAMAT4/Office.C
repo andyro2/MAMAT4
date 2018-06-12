@@ -105,8 +105,8 @@ int Office::Find_Highest_Ratio() {
 	double max = classes_[0].Get_Curr_Ratio();
 	max_ind = 0;
 	for (unsigned int i = 0; i < classes_.size(); i++) {
-		if (classes_[i].Get_Num_Teachers() > max) {
-			max = classes_[i].Get_Num_Teachers();
+		if (classes_[i].Get_Curr_Ratio() > max) {
+			max = classes_[i].Get_Curr_Ratio();
 			max_ind = i;
 		}
 	}
@@ -160,7 +160,7 @@ Result Office::Set_Sick_Child(string const name) {
 			sick_child_ = name;
 			classes_[i].Set_Sick_Child(name);
 			cout << "Reporting sick child : " << endl;
-			cout << "Name: " << name << endl;
+			cout << "Name : " << name << endl;
 			cout << "Parent's phone number : " << phone << endl;
 			return SUCCESS;
 		}
@@ -177,13 +177,13 @@ int Office::Find_Child_Class(string const name) {
 }
 
 void Office::Print() const {
-	cout << "Printing office status :\n" << "========================" << endl;
+	cout << "Printing office status : \n" << "========================" << endl;
 	Room::Print();
 	cout << "Office is busy : " << boolalpha << busy_ << endl;
 	if (busy_)
-		cout << "Sick child : " << sick_child_ << "\n" << endl;
-	else
-		cout << endl;
+		cout << "Sick child : " << sick_child_ << endl;
+	
+	cout << endl;
 	if (classes_.size() > 0) {
 		for (unsigned int i = 0; i < classes_.size(); i++)
 			classes_[i].Print();

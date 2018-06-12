@@ -106,28 +106,31 @@ double Class::Get_Curr_Ratio() const {
 }
 
 void Class::Print() const {
-	cout << "Printing class status :\n" << "========================" << endl;
+	cout << "Printing class status : \n" << "========================" << endl;
 	Room::Print();
 	cout << "Max number of children : " << max_capacitence_ << endl;
 	cout << "Number of children : " << children_.size() << endl;
 	cout << "Number of teachers : " << teachers_.size() << endl;
 	cout << "Max value for ratio : " << max_ratio_ << endl;
 	if (teachers_.size() != 0)
-		cout << "Current ratio : " << children_.size()/ teachers_.size() << endl;
+		cout << "Current ratio : " << Get_Curr_Ratio() << endl;
 	else
 		cout << "Current ratio : 0" << endl;
 	cout << "Children age range : " << ages_ << " - " << ages_+1 << "\n"<<endl;
 	if (children_.size() > 0) {
-		cout << "Printing childrens status :\n" << "========================" << endl;
+		cout << "Printing childrens status : \n" << "========================" << endl;
 		for (unsigned int i = 0; i < children_.size(); i++)
 			children_[i].Print();
+		cout << endl;
 	}
 	if (teachers_.size() > 0) {
-		cout << "\nPrinting teachers status :\n" << "========================" << endl;
+		cout << "Printing teachers status : \n" << "========================" << endl;
 		for (unsigned int i = 0; i < teachers_.size(); i++)
 			teachers_[i].Print();
+		cout << endl;
 	}
-	cout << endl;
+	//cout << endl;
+	return;
 
 
 }
